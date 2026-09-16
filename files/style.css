@@ -1,0 +1,375 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Baloo 2', Arial, Helvetica, sans-serif;
+  background: #f5f5f5;
+  color: #222;
+  min-height: 100vh;
+}
+
+:root {
+  --blue: #2f95c4;
+  --blue-dark: #16769c;
+  --light-blue: #dff1f8;
+  --green: #38c820;
+  --font-display: 'Baloo 2', Arial, Helvetica, sans-serif;
+  --font-script: 'Caveat', cursive;
+}
+
+.topo {
+  height: 68px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  box-shadow: 0 1px 5px rgba(0,0,0,.12);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.botao-menu, .botao-usuario {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+}
+
+.botao-menu img { height: 30px; }
+.botao-usuario img { height: 26px; }
+
+.area-usuario { display: flex; align-items: center; gap: 10px; }
+.logo-gdf img { height: 34px; }
+
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: min(82vw, 310px);
+  height: 100vh;
+  background: var(--blue);
+  transform: translateX(-100%);
+  transition: transform .25s ease;
+  z-index: 50;
+  padding-top: 55px;
+  box-shadow: 5px 0 12px rgba(0,0,0,.2);
+}
+.menu-lateral.open { transform: translateX(0); }
+
+.menu-cabecalho {
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  padding: 0 16px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fechar-menu {
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 29px;
+  cursor: pointer;
+}
+
+.menu-links li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 54px;
+  padding: 0 16px;
+  color: #fff;
+  text-decoration: none;
+  border-top: 1px solid rgba(255,255,255,.35);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: .3px;
+}
+.menu-links li:last-child a { border-bottom: 1px solid rgba(255,255,255,.35); }
+.menu-links li a:hover { background: rgba(0,0,0,.08); }
+.icone-menu { display: inline-flex; width: 22px; justify-content: center; }
+.icone-menu img { height: 20px; }
+
+.overlay-menu {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.42);
+  opacity: 0;
+  pointer-events: none;
+  transition: .25s;
+  z-index: 40;
+}
+.overlay-menu.open { opacity: 1; pointer-events: auto; }
+
+.banner-principal {
+  width: min(100%, 520px);
+  margin: 14px auto 0;
+  height: 190px;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(255,255,255,.74), rgba(255,255,255,.74)),
+    repeating-linear-gradient(
+      90deg,
+      #d3d3d3 0 22px,
+      #eeeeee 22px 42px,
+      #c5c5c5 42px 58px
+    );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.identidade-biblioteca {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-biblioteca { font-size: 34px; line-height: 1; }
+.logo-biblioteca img { height: 44px; width: auto; }
+.nome-biblioteca {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: left;
+  color: #1c1c1c;
+}
+.nome-biblioteca span { display: block; }
+
+.frase-biblioteca {
+  margin-top: 14px;
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.15;
+  max-width: 320px;
+  text-align: center;
+  color: #1c1c1c;
+}
+
+.card {
+  background: var(--blue);
+  color: #fff;
+  border-radius: 17px;
+  margin-bottom: 20px;
+  padding: 13px 16px;
+  box-shadow: 0 7px 8px rgba(0,0,0,.25);
+}
+
+.card-horario {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.icone-horario img { height: 39px; filter: brightness(0) invert(1); }
+.titulo-horario {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  flex: 1;
+}
+.informacoes-horario { font-size: 11px; font-weight: 600; text-align: right; }
+.informacoes-horario div { margin-bottom: 4px; }
+.informacoes-horario div:last-child { margin-bottom: 0; }
+.informacoes-horario strong { display: block; }
+
+.card-informacao {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.icone-card {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #111;
+}
+
+.conteudo-card {
+  flex: 1;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: .2px;
+}
+
+.mapa-biblioteca {
+  height: 138px;
+  margin: 31px auto 0;
+  max-width: 285px;
+  background: #ddd;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+footer {
+  padding: 18px 0 26px;
+  text-align: center;
+}
+.creditos {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  color: #777;
+}
+
+.catalogo { padding: 22px 18px 30px; text-align: center; }
+
+.botao-busca {
+  border: 0;
+  background: var(--blue);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  border-radius: 18px;
+  padding: 10px 20px;
+  font-size: 15px;
+  letter-spacing: .3px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,.18);
+  display: inline-block;
+  margin: 0 auto 30px;
+}
+.botao-busca:hover { background: var(--blue-dark); }
+
+.lista-livros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+}
+
+.livro {
+  width: 222px;
+  min-height: 258px;
+  margin: 0 auto;
+  background: #f7f7f7;
+  border-radius: 17px;
+  box-shadow: 0 7px 5px rgba(0,0,0,.25);
+  padding: 14px 12px 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.capa-livro img { width: 82px; height: 122px; margin: 0 auto 12px; display: block; object-fit: cover; box-shadow: 0 2px 6px rgba(0,0,0,.3); }
+
+.informacoes-livro h2 { font-family: var(--font-display); font-size: 12px; font-weight: 700; margin-bottom: 14px; }
+.informacoes-livro p { font-size: 10px; line-height: 1.4; }
+
+.status-livro { border-top: 2px solid #999; font-family: var(--font-display); font-size: 17px; padding: 8px; font-weight: 700; margin-top: 12px; }
+.status-livro.disponivel { color: var(--green); }
+.status-livro.indisponivel { color: #c0392b; }
+
+.painel-filtros {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(86vw, 330px);
+  height: 100vh;
+  background: var(--blue);
+  transform: translateX(100%);
+  transition: transform .25s ease;
+  z-index: 50;
+  padding: 58px 18px 20px;
+}
+.painel-filtros.open { transform: translateX(0); }
+
+.fechar-filtros {
+  position: absolute;
+  top: 10px;
+  right: 13px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 29px;
+  cursor: pointer;
+}
+
+.formulario-filtros .campo-filtro { margin-bottom: 14px; }
+.formulario-filtros label {
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.campo-com-icone { position: relative; }
+.formulario-filtros input, .formulario-filtros select {
+  width: 100%;
+  height: 38px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--light-blue);
+  padding: 0 34px 0 10px;
+  font-size: 15px;
+  color: #222;
+  outline: none;
+  font-family: inherit;
+  appearance: none;
+}
+.icone-lupa {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 15px;
+  pointer-events: none;
+  opacity: .7;
+}
+
+.formulario-filtros select {
+  background-image: linear-gradient(45deg, transparent 50%, #555 50%), linear-gradient(135deg, #555 50%, transparent 50%);
+  background-position: calc(100% - 16px) center, calc(100% - 11px) center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.botao-filtrar {
+  display: block;
+  margin: 18px auto 0;
+  border: 0;
+  border-radius: 9px;
+  background: #48a8cc;
+  color: #fff;
+  font-family: var(--font-display);
+  padding: 10px 22px;
+  font-weight: 700;
+  letter-spacing: .3px;
+  cursor: pointer;
+}
+.botao-filtrar:hover { background: #3a93b4; }
+
+.overlay-filtros {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.42);
+  opacity: 0;
+  pointer-events: none;
+  transition: .25s;
+  z-index: 40;
+}
+.overlay-filtros.open { opacity: 1; pointer-events: auto; }

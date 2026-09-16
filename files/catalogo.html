@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Pública de Taguatinga</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Caveat:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="topo">
+        <button class="botao-menu" id="abrir-menu" aria-label="Abrir menu">
+            <img src="img/Copilot_20260911_162145.png" alt="">
+        </button>
+        <div class="area-usuario">
+            <div class="logo-gdf">
+                <img src="img/gdf.png" alt="Governo do Distrito Federal">
+            </div>
+            <button class="botao-usuario" aria-label="Área do usuário">
+                <img src="img/do-utilizador.png" alt="">
+            </button>
+        </div>
+    </header>
+    <nav class="menu-lateral" id="menu-lateral">
+        <div class="menu-cabecalho">
+            <span>MENU</span>
+            <button class="fechar-menu" id="fechar-menu" aria-label="Fechar menu">
+                ×
+            </button>
+        </div>
+        <ul class="menu-links">
+            <li>
+                <a href="index.html">
+                    <span class="icone-menu"><img src="img/casa.png" alt=""></span>
+                    INÍCIO
+                </a>
+            </li>
+            <li>
+                <a href="catalogo.html">
+                    <span class="icone-menu"><img src="img/abra-o-livro.png" alt=""></span>
+                    CATÁLOGO
+                </a>
+            </li>
+            <li>
+                <a href="#sobre">
+                    <span class="icone-menu"><img src="img/informacoes.png" alt=""></span>
+                    SOBRE
+                </a>
+            </li>
+            <li>
+                <a href="#contato">
+                    <span class="icone-menu"><img src="img/contato.png" alt=""></span>
+                    CONTATO
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- Overlay do menu -->
+    <div class="overlay-menu" id="overlay-menu"></div>
+    <main>
+        <!-- BANNER PRINCIPAL -->
+        <section class="banner-principal">
+            <div class="identidade-biblioteca">
+                <div class="logo-biblioteca">📖</div>
+                <div class="nome-biblioteca">
+                    <span>BIBLIOTECA</span>
+                    <span>PÚBLICA DE</span>
+                    <span>TAGUATINGA</span>
+                </div>
+            </div>
+            <h1 class="frase-biblioteca">
+                AQUI, CADA HISTÓRIA
+                <br>
+                ENCONTRA UM
+                <br>
+                CORAÇÃO CURIOSO
+            </h1>
+        </section>
+        <!-- CONTEÚDO DO CATÁLOGO -->
+        <section class="catalogo">
+            <!-- BOTÃO QUE ABRIRÁ O PAINEL DE FILTROS -->
+            <button class="botao-busca" id="abrir-filtros">
+                BUSCA DE LIVROS
+            </button>
+
+            <!-- PAINEL DE FILTROS -->
+            <aside class="painel-filtros" id="painel-filtros">
+                <button class="fechar-filtros" id="fechar-filtros" aria-label="Fechar filtros">
+                    ×
+                </button>
+                <form class="formulario-filtros" id="formulario-filtros">
+                    <div class="campo-filtro">
+                        <label for="titulo">
+                            Título:
+                        </label>
+                        <div class="campo-com-icone">
+                            <input type="text" id="titulo" name="titulo">
+                            <span class="icone-lupa">🔍</span>
+                        </div>
+                    </div>
+                    <div class="campo-filtro">
+                        <label for="autor">
+                            Autor:
+                        </label>
+                        <div class="campo-com-icone">
+                            <input type="text" id="autor" name="autor">
+                            <span class="icone-lupa">🔍</span>
+                        </div>
+                    </div>
+                    <div class="campo-filtro">
+                        <label for="genero">
+                            Gênero:
+                        </label>
+                        <div class="campo-com-icone">
+                            <input type="text" id="genero" name="genero">
+                            <span class="icone-lupa">🔍</span>
+                        </div>
+                    </div>
+                    <div class="campo-filtro">
+                        <label for="disponibilidade">
+                            Disponibilidade:
+                        </label>
+                        <select id="disponibilidade" name="disponibilidade">
+                            <option value="">
+                                Selecione
+                            </option>
+                            <option value="disponivel">
+                                Disponível
+                            </option>
+                            <option value="indisponivel">
+                                Indisponível
+                            </option>
+                        </select>
+                    </div>
+                    <button type="submit" class="botao-filtrar">
+                        FILTRAR
+                    </button>
+                </form>
+            </aside>
+            <!-- Fundo do painel de filtros -->
+            <div class="overlay-filtros" id="overlay-filtros"></div>
+            <!-- LISTA DE LIVROS -->
+            <section class="lista-livros">
+                <!-- LIVRO DE EXEMPLO -->
+                <article class="livro">
+                    <div class="capa-livro">
+                        <!-- Posteriormente a imagem real da capa poderá ser colocada aqui. -->
+                        <img src="" alt="Capa do livro Harry Potter e a Pedra Filosofal">
+                    </div>
+                    <div class="informacoes-livro">
+                        <h2>
+                            Harry Potter e a Pedra Filosofal
+                        </h2>
+                        <p class="autor-livro">
+                            J.K. Rowling
+                        </p>
+                        <p class="genero-livro">
+                            Fantasia, aventura
+                        </p>
+                        <p class="ano-livro">
+                            1997
+                        </p>
+                        <p class="paginas-livro">
+                            233 páginas
+                        </p>
+                    </div>
+                    <div class="status-livro disponivel">
+                        DISPONÍVEL
+                    </div>
+                </article>
+            </section>
+        </section>
+    </main>
+    <footer id="contato">
+        <p class="creditos">Desenvolvido por: Felipe Campos Hipólito</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
